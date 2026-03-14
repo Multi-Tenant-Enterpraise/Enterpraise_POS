@@ -1,7 +1,7 @@
-package com.zosh.mapper;
+package com.mis.buss.mapper;
 
-import com.zosh.model.Inventory;
-mport com.zosh.model.InventoryDTO;
+import com.mis.buzz.model.Inventory;
+import com.mis.buzz.model.InventoryDTO;
 
 public class InventoryMapper{
     public static InventoryDTO toDTO(Inventory inventory){
