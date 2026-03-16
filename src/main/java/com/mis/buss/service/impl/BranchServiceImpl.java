@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.mis.buss.domain.Branch;
 import com.mis.buss.exceptions.UserException;
 import com.mis.buss.mapper.BranchMapper;
+import com.mis.buss.model.Branch;
 import com.mis.buss.model.Store;
 import com.mis.buss.model.User;
 import com.mis.buss.payload.dto.BranchDTO;
