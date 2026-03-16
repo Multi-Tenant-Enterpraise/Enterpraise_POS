@@ -1,13 +1,15 @@
-package com.zosh.repository;
+package com.mis.buss.repository;
 
-import com.zosh.model.Inventory;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-public interface InventoryRepository exten
-ds JpaRepository<Inventory,Long>{
 
-    Inventory findByProductIdAndBranchId(Long productId, branchId);
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.mis.buss.model.Inventory;
+
+public interface InventoryRepository extends JpaRepository<Inventory, Long> {
+	Inventory findByProductIdAndBranchId(Long productId, Long branchId);
     List<Inventory>findByBranchId(Long branchId);
-
 }
+
+

@@ -1,20 +1,31 @@
-package com.zosh.controller;
+package com.mis.buss.controller;
 
-import org.springframework.web.bind.annotation.*;
-import com.zosh.payload.response.ApiResponse;
-import com.zosh.service.InventoryService;
-import com.zosh.payload.dto.InventoryDTO;
-import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mis.buss.payload.dto.InventoryDTO;
+import com.mis.buss.payload.response.ApiResponse;
+import com.mis.buss.service.InventoryService;
+
+import lombok.RequiredArgsConstructor;
+
 @RestController
 @RequiredArgsConstructor
-@Requestmapping("/api/inventories")
+@RequestMapping("/api/inventories")
 public class InventoryController{
 
-private final InventoryService InventoryService;
+private final InventoryService inventoryService;
 
 
 @PostMapping()
@@ -22,7 +33,7 @@ public ResponseEntity<InventoryDTO> create(
     @RequestBody InventoryDTO inventoryDTO
     )throws Exception{
 
-    return ResponseEntity.ok(InventoryService.createInventory(inventoryDTO));
+    return ResponseEntity.ok(inventoryService.createInventory(inventoryDTO));
 }
 @PutMapping("/{id}")
 public ResponseEntity<InventoryDTO> update(
@@ -30,7 +41,7 @@ public ResponseEntity<InventoryDTO> update(
     @PathVariable Long id
     )throws Exception{
 
-    return ResponseEntity.ok(InventoryService.updateInventoryInventory(id,inventoryDTO));
+    return ResponseEntity.ok(inventoryService.updateInventory(id, inventoryDTO));
 }
 
 
@@ -39,7 +50,7 @@ public ResponseEntity<ApiResponse> delete(
     
     @PathVariable Long id
     )throws Exception{
-InventoryService.deleteInventoryInventory(id);
+	inventoryService.deleteInventory(id);
 
 ApiResponse apiResponse=new ApiResponse();
 apiResponse.setMessage("Inventory deleted");
@@ -52,7 +63,7 @@ public ResponseEntity<List<InventoryDTO>> getInventoryByProductAndBranchId(
     @PathVariable Long productId
     )throws Exception{
         
-    return ResponseEntity.ok(InventoryService.getallInventoryByBranchId(branchId));
+    return ResponseEntity.ok(inventoryService.getInventoryByBranchId(branchId));
 }
 @GetMapping("/branch/{branchId}")
 public ResponseEntity<List<InventoryDTO>> getInventoryByBranch(
@@ -60,7 +71,7 @@ public ResponseEntity<List<InventoryDTO>> getInventoryByBranch(
     @PathVariable Long branchId
     )throws Exception{
         
-    return ResponseEntity.ok(InventoryService.getallInventoryBybranchId(branchId));
+    return ResponseEntity.ok(inventoryService.getInventoryByBranchId(branchId));
 }
 
 }
