@@ -27,4 +27,10 @@ public static Inventory toEntity(InventoryDTO inventoryDTO,
                 .build();
                                     }
 
+    private static class Inventory {
+
+        public Inventory() {
+        }
+    }
+
 }
