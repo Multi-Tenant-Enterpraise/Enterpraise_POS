@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.mis.buss.domain.Branch;
 import com.mis.buss.mapper.InventoryMapper;
-import com.mis.buss.model.Branch;
 import com.mis.buss.model.Inventory;
 import com.mis.buss.model.Product;
 import com.mis.buss.payload.dto.InventoryDTO;
